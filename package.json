@@ -9,9 +9,7 @@
 		"dev": "tsx watch src/server.ts",
 		"start": "node build/server.cjs",
 		"build": "tsup src --out-dir build",
-		"check": "npx @biomejs/biome check --write .",
-		"lint": "npx @biomejs/biome lint --write .",
-		"format": "npx @biomejs/biome format --write ."
+		"check": "npx @biomejs/biome check --write ."
 	},
 	"keywords": [],
 	"author": "",
