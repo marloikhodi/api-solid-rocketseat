@@ -143,4 +143,7 @@ vite.config.ts.timestamp-*
 
 #Build
 build
-generated
+
+#Prisma Generated
+/generated/prisma
+
