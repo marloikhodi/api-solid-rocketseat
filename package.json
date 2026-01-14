@@ -9,7 +9,11 @@
 		"dev": "tsx watch src/server.ts",
 		"start": "node build/server.cjs",
 		"build": "tsup src --out-dir build",
-		"check": "npx @biomejs/biome check --write ."
+		"check": "npx @biomejs/biome check --write .",
+		"db:up": "docker compose up -d",
+		"db:down": "docker compose stop",
+		"migrate": "prisma migrate dev",
+		"studio": "prisma studio"
 	},
 	"keywords": [],
 	"author": "",
