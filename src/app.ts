@@ -17,7 +17,7 @@ app.setErrorHandler((error, _, reply) => {
 	if (env.NODE_ENV !== 'prod') {
 		console.log(error)
 	} else {
-		//TODO: Here we should log to an external too like DataDog/NewRelic/Sentry
+		//TODO: Here we should log to an external tool like DataDog/NewRelic/Sentry
 	}
 	return reply.status(500).send({ message: 'Internal server error.' })
 })
