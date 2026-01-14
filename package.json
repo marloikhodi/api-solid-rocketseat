@@ -12,6 +12,7 @@
 		"check": "npx @biomejs/biome check --write .",
 		"db:up": "docker compose up -d",
 		"db:down": "docker compose stop",
+		"db:reset": "docker compose down && docker compose up -d && sleep 2 && prisma migrate dev",
 		"migrate": "prisma migrate dev",
 		"studio": "prisma studio"
 	},
@@ -21,6 +22,7 @@
 	"dependencies": {
 		"@prisma/adapter-pg": "6.19.2",
 		"@prisma/client": "6.19.2",
+		"bcryptjs": "3.0.3",
 		"dotenv": "17.2.3",
 		"fastify": "5.6.1",
 		"pg": "8.16.3",
