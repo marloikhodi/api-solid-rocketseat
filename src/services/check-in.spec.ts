@@ -3,6 +3,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository.js'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository.js'
 import { CheckInUseCase } from './check-in.js'
+import { MaxDistanceError } from './errors/max-distance-error.js'
+import { MaxNumberOfCheckInsError } from './errors/max-number-of-check-ins-error.js'
 
 let checkInsRepository: InMemoryCheckInsRepository
 let gymsRepository: InMemoryGymsRepository
@@ -14,11 +16,11 @@ describe('Check Ins Use Case', () => {
 		gymsRepository = new InMemoryGymsRepository()
 		sut = new CheckInUseCase(checkInsRepository, gymsRepository)
 
-		gymsRepository.items.push({
+		gymsRepository.create({
 			id: 'gym-01',
 			description: '',
-			latitude: new Decimal(0),
-			longitude: new Decimal(0),
+			latitude: 0,
+			longitude: 0,
 			phone: '',
 			title: '',
 		})
@@ -58,7 +60,7 @@ describe('Check Ins Use Case', () => {
 				userLatitude: 0,
 				userLongitude: 0,
 			}),
-		).rejects.toBeInstanceOf(Error)
+		).rejects.toBeInstanceOf(MaxNumberOfCheckInsError)
 	})
 
 	it('should be able to check in twice in different days', async () => {
@@ -100,6 +102,6 @@ describe('Check Ins Use Case', () => {
 				userLatitude: -23.6027904,
 				userLongitude: -46.7664896,
 			}),
-		).rejects.toBeInstanceOf(Error)
+		).rejects.toBeInstanceOf(MaxDistanceError)
 	})
 })
