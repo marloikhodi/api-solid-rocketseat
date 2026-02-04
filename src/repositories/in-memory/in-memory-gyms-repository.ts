@@ -1,5 +1,4 @@
 import { randomUUID } from 'node:crypto'
-import { title } from 'node:process'
 import { type Gym, Prisma } from 'generated/prisma/client.js'
 import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates.js'
 import type {
