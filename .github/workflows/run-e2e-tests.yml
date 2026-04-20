@@ -14,8 +14,8 @@ jobs:
           - 5432:5432
         env:
           POSTGRESQL_USERNAME: docker
-          POSTGRESQL_PASSWOR: docker
-          POSTGRESQL_DATABAS: apisolid
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: apisolid
         
     steps:
       - uses: actions/checkout@v6
